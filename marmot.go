@@ -101,7 +101,7 @@ func main() {
 		go changeListener(streamDB, rep, i+1, errChan)
 	}
 
-	cleanupInterval := 5 * time.Second
+	cleanupInterval := 60 * time.Second
 	cleanupTicker := time.NewTicker(cleanupInterval)
 	defer cleanupTicker.Stop()
 

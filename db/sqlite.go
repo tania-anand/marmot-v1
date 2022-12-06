@@ -117,7 +117,7 @@ func GetAllDBTables(path string) ([]string, error) {
 }
 
 func OpenStreamDB(path string) (*SqliteStreamDB, error) {
-	dbPool, err := pool.NewSQLitePool(fmt.Sprintf("%s?_journal_mode=WAL", path), PoolSize, true)
+	dbPool, err := pool.NewSQLitePool(fmt.Sprintf("%s?cache=shared&_journal_mode=WAL&_locking=NORMAL&_sync=1&_cache_size=204800000", path), PoolSize, true)
 	if err != nil {
 		return nil, err
 	}
